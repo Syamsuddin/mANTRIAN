@@ -1,0 +1,4 @@
+<x-layouts.app title="Loket">
+    <div class="mb-4 flex items-center justify-between"><h1 class="text-2xl font-semibold brand">Loket</h1><a class="btn-primary" href="{{ route('admin.counters.create') }}">Tambah</a></div>
+    <div class="overflow-hidden rounded-lg border bg-white"><table class="w-full text-left text-sm"><thead class="bg-slate-100"><tr><th class="p-3">Kode</th><th>Nama</th><th>Layanan</th><th>Status</th><th></th></tr></thead><tbody>@foreach($counters as $counter)<tr class="border-t"><td class="p-3">{{ $counter->code }}</td><td>{{ $counter->name }}</td><td>{{ $counter->services->pluck('name')->join(', ') }}</td><td>{{ $counter->is_active ? 'Aktif' : 'Nonaktif' }}</td><td><a class="text-blue-700" href="{{ route('admin.counters.edit', $counter) }}">Edit</a></td></tr>@endforeach</tbody></table></div>
+</x-layouts.app>

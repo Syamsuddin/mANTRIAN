@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:root{
+    --bg: #f7fbff; /* very light blue */
+    --surface: #ffffff;
+    --muted: #6b7280;
+    --text: #0f172a;
+    --primary-50: #eef8ff;
+    --primary-100: #d9f0ff;
+    --primary-200: #bfe6ff;
+    --primary-400: #66c7ff;
+    --primary-500: #2aa6ff;
+    --primary-600: #1b86e6;
+    --accent: #60a5fa;
+    --glass: rgba(255,255,255,0.6);
+    --radius: 12px;
+}
+
+/* Base reset / theme */
+html,body{
+    height:100%;
+}
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Sidebar */
+.sidebar{
+    background: linear-gradient(180deg,var(--surface), rgba(255,255,255,0.95));
+    border-right: 1px solid rgba(15,23,42,0.06);
+    box-shadow: 0 6px 20px rgba(11,61,89,0.03);
+}
+.brand{
+    font-weight:700;
+    color:var(--primary-600);
+    letter-spacing:0.4px;
+}
+.user-meta{ color:var(--muted); font-size:13px }
+
+nav a{
+    display:block;
+    padding:.5rem .75rem;
+    border-radius:8px;
+    color:inherit;
+    transition:background .15s, color .15s, transform .08s;
+}
+nav a:hover{ background:var(--primary-50); color:var(--primary-600); transform:translateY(-1px)}
+
+.btn-primary{
+    background: linear-gradient(90deg,var(--primary-500), var(--primary-600));
+    color: white;
+    padding: .5rem .85rem;
+    border-radius:10px;
+    box-shadow: 0 6px 18px rgba(43,131,255,0.12);
+}
+
+.card{
+    background:var(--surface);
+    border-radius:var(--radius);
+    padding:1rem;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    border: 1px solid rgba(15,23,42,0.04);
+}
+
+.alert-success{ background: linear-gradient(90deg, rgba(16,185,129,0.06), rgba(16,185,129,0.03)); border:1px solid rgba(16,185,129,0.12); color:#065f46 }
+.alert-danger{ background: linear-gradient(90deg, rgba(239,68,68,0.04), rgba(239,68,68,0.02)); border:1px solid rgba(239,68,68,0.08); color:#7f1d1d }
+
+/* Small helpers for display pages */
+.display-board{ background: linear-gradient(180deg,var(--primary-50), var(--bg)); padding:1.5rem; border-radius:16px }
+
+/* Make forms look modern */
+input,select,textarea{ border-radius:10px; border:1px solid rgba(15,23,42,0.06); padding:.5rem .75rem }
+input:focus,select:focus,textarea:focus{ outline: none; box-shadow: 0 6px 18px rgba(43,131,255,0.08); border-color:var(--primary-400) }
+
+/* small responsive tweaks */
+@media (max-width:768px){
+    .sidebar{ border-right: none; border-bottom:1px solid rgba(15,23,42,0.04)}
+}
